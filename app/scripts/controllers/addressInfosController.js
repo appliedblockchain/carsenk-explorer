@@ -38,7 +38,6 @@ angular.module('ethExplorer')
                 	console.log(result)
                 	$scope.transactions=result;
                 	});
-              getETHUSD();
             } else {
                 $location.path("/");
             }
@@ -50,16 +49,6 @@ angular.module('ethExplorer')
                     else{deferred.reject(error);}
                 });
                 return deferred.promise;
-            }
-
-            function getETHUSD() {
-              $.getJSON("https://api.coinmarketcap.com/v1/ticker/ethereum/", function(json) {
-                var price = Number(json[0].price_usd);
-                var ethusd = price.toFixed(2);
-                var balanceusd = "$" + ethusd * $scope.balance;
-                $scope.balanceusd = balanceusd;
-                //console.log("Balance in USD " + $scope.balanceusd);
-              });
             }
 
             function getAddressTransactionCount(){

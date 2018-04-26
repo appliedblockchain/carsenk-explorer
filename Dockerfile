@@ -16,4 +16,4 @@ COPY . .
 
 EXPOSE 8000
 
-CMD npm run server
+CMD npm run start
